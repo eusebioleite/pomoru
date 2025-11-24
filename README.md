@@ -1,123 +1,98 @@
 # pomoru
 
-Um pomodoro **extremamente simples** para o terminal. Sem distrações, sem interfaces gigantescas, sem dependências externas além do próprio binário. Só executar e usar.
+An **extremely simple** terminal-based pomodoro. No distractions, no huge interfaces, no external dependencies besides the binary itself. Just run it and use.
 
-## O que é o pomoru?
+## What is pomoru?
 
-O pomoru é um timer pomodoro minimalista. Quando você executa o binário:
+pomoru is a minimalist pomodoro timer. When you run the binary:
 
-- Ele inicia imediatamente uma sessão de **trabalho**.
-    
-- Quando acaba, alterna automaticamente para **descanso**.
-    
-- Depois volta para **trabalho**.
-    
-- E segue alternando **infinitamente**, até você encerrar com `CTRL + C`.
-    
+- It immediately starts a **work** session.
+- When the session ends, it automatically switches to **rest**.
+- Then back to **work** again.
+- And it keeps alternating **forever**, until you stop it with `CTRL + C`.
 
-Só isso.
+That's it.
 
 ---
 
-## 🚀 Como usar
+## 🚀 How to use
 
-### Iniciar o pomodoro
+### Start the pomodoro
 
-```
 pomoru
-```
 
-Isso começa imediatamente o ciclo **trabalho → descanso → trabalho → descanso...**
-```powershell
+This instantly starts the **work → rest → work → rest...** cycle.
+
+Example:
+
 .\pomoru.exe
 CTRL + C to stop the pomodoro session.
 [WORK] -> 00:57
-```
-### Acessar ajuda
 
-```
+### Show help
+
 pomoru h
-```
 
-Saída:
-```
+Output:
+
 pomoru - CLI Pomodoro session
 Usage: pomoru [OPTIONS] or just execute the binary to start a pomodoro session.
 Options:
  h -> Show this message
  w -> Set work duration in minutes (default: 25)
  r -> Set rest duration in minutes (default: 5)
-```
-### Ajustar duração de work
 
-```
-pomoru w <minutos>
-```
+### Set work duration
 
-Exemplo:
+pomoru w <minutes>
 
-```
+Example:
+
 pomoru w 30
-```
 
-### Ajustar duração de rest
+### Set rest duration
 
-```
-pomoru r <minutos>
-```
+pomoru r <minutes>
 
-Exemplo:
+Example:
 
-```
 pomoru r 10
-```
 
 ---
 
-## ⚙️ Arquivo de configuração
+## ⚙️ Configuration file
 
-O pomoru mantém um arquivo `pomoru.toml` **na mesma pasta do binário**.
+pomoru stores a `pomoru.toml` file **in the same folder as the binary**.
 
-Se o arquivo não existir, ele será criado automaticamente com:
+If the file doesn’t exist, it will be created automatically with:
 
-```toml
 work = 25
 rest = 5
-```
 
-Modificar configurações via CLI atualiza esse arquivo.
-
----
-
-## ✨ Funcionalidades
-
-- Loop infinito de pomodoro
-    
-- Cores no terminal
-    
-- Flash na barra de tarefas (Windows) quando o ciclo está para acabar
-    
-- Configuração automática
-    
-- Zero complexidade: execute e trabalhe
-    
+Changing values through the CLI updates this file.
 
 ---
 
-## 📦 Compilação
+## ✨ Features
 
-```
+- Infinite pomodoro loop
+- Terminal colors
+- Taskbar flashing (Windows) when a cycle is about to end
+- Automatic configuration
+- Zero complexity: run and work
+
+---
+
+## 📦 Building
+
 cargo build --release
-```
 
-O binário final estará em:
+The final binary will be located at:
 
-```
 target/release/pomoru
-```
 
 ---
 
-## 📜 Licença
+## 📜 License
 
-MIT. Faça o que quiser.
+MIT. Do whatever you want.
