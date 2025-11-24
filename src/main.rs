@@ -5,6 +5,7 @@ use std::process::exit;
 use std::env::args;
 use std::env;
 use serde::{Deserialize, Serialize};
+use owo_colors::OwoColorize;
 
 fn main() {
     let args: Vec<String> = args().collect();
@@ -86,24 +87,13 @@ fn set_rest(arg: &str) {
     save_config(&Config { work: 25, rest: rest }).unwrap();
     println!("Rest duration set to {} minutes.", rest);
 }
-
 fn show_help() {
-    // ANSI color codes
-    const GREEN: &str = "\x1b[32m";
-    const YELLOW: &str = "\x1b[33m";
-    const BLUE: &str = "\x1b[34m";
-    const CYAN: &str = "\x1b[36m";
-    const BOLD: &str = "\x1b[1m";
-    const RESET: &str = "\x1b[0m";
-
-    println!("{BOLD}{GREEN}pomoru{RESET}");
-    println!("{BOLD}{GREEN}_____________________________________________________________{RESET}");
-    println!("{YELLOW}Usage: pomoru [OPTIONS]{RESET}\n");
-    println!("{YELLOW}Usage: pomoru (Just execute the binary) {RESET}\n");
-
-    println!("{BOLD}{BLUE}Options:{RESET}");
-    println!("{CYAN} n{RESET} -> Start a pomodoro session");
-    println!("{CYAN} h {RESET} -> Show this message");
-    println!("{CYAN} w <value>{RESET} -> Set work duration in minutes (default: 25)");
-    println!("{CYAN} r <value>{RESET} -> Set rest duration in minutes (default: 5)");
+    println!("{}", " ______________________________________________________________________________".bright_green().bold());
+    println!("{}", "|                          pomoru - CLI Pomodoro session                       |".bright_green().bold());
+    println!("{}", "|______________________________________________________________________________|".bright_green().bold());
+    println!("{}", "Usage: pomoru [OPTIONS] or just execute the binary to start a pomodoro session.".yellow());
+    println!("{}", "Options:".cyan());
+    println!("{}{}", " h -> ".cyan(), "Show this message".white());
+    println!("{}{}", " w -> ".cyan(), "Set work duration in minutes (default: 25)".white());
+    println!("{}{}", " r -> ".cyan(), "Set rest duration in minutes (default: 5)".white());
 }
